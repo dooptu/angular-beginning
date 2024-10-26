@@ -1,0 +1,19 @@
+/* app/modules/authentication/sign-in/sign-in.scss */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .signin-card {
+    width: 400px;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
