@@ -1,0 +1,110 @@
+// _variables.scss
+
+// Main Colors
+$primary-color: #007bff; // Bootstrap primary
+$secondary-color: #6c757d; // Bootstrap secondary
+$success-color: #28a745; // Bootstrap success
+$danger-color: #dc3545; // Bootstrap danger
+$warning-color: #ffc107; // Bootstrap warning
+$info-color: #17a2b8; // Bootstrap info
+$light-color: #f8f9fa; // Bootstrap light
+$dark-color: #343a40; // Bootstrap dark
+$black-color: #000000;
+$white-color: #ffff;
+
+// Generate RGBA Variants for each main color
+@function rgba-colors($base-color) {
+  $colors: ();
+  @for $i from 1 through 7 {
+    $alpha: $i * 0.1; // Alpha values: 0.1, 0.2, ..., 0.7
+    $colors: append($colors, rgba($base-color, $alpha), comma);
+  }
+  @return $colors;
+}
+
+// Define RGBA child colors for each main color
+$primary-rgba-colors: rgba-colors($primary-color);
+$secondary-rgba-colors: rgba-colors($secondary-color);
+$success-rgba-colors: rgba-colors($success-color);
+$danger-rgba-colors: rgba-colors($danger-color);
+$warning-rgba-colors: rgba-colors($warning-color);
+$info-rgba-colors: rgba-colors($info-color);
+$light-rgba-colors: rgba-colors($light-color);
+$dark-rgba-colors: rgba-colors($dark-color);
+
+// Accessing Child RGBA Colors
+$primary-rgba-1: nth($primary-rgba-colors, 1); // rgba(0, 123, 255, 0.1)
+$primary-rgba-2: nth($primary-rgba-colors, 2); // rgba(0, 123, 255, 0.2)
+$primary-rgba-3: nth($primary-rgba-colors, 3); // rgba(0, 123, 255, 0.3)
+$primary-rgba-4: nth($primary-rgba-colors, 4); // rgba(0, 123, 255, 0.4)
+$primary-rgba-5: nth($primary-rgba-colors, 5); // rgba(0, 123, 255, 0.5)
+$primary-rgba-6: nth($primary-rgba-colors, 6); // rgba(0, 123, 255, 0.6)
+$primary-rgba-7: nth($primary-rgba-colors, 7); // rgba(0, 123, 255, 0.7)
+
+// Repeat for other colors
+$secondary-rgba-1: nth($secondary-rgba-colors, 1);
+$secondary-rgba-2: nth($secondary-rgba-colors, 2);
+$secondary-rgba-3: nth($secondary-rgba-colors, 3);
+$secondary-rgba-4: nth($secondary-rgba-colors, 4);
+$secondary-rgba-5: nth($secondary-rgba-colors, 5);
+$secondary-rgba-6: nth($secondary-rgba-colors, 6);
+$secondary-rgba-7: nth($secondary-rgba-colors, 7);
+
+// Same pattern for other main colors
+$success-rgba-1: nth($success-rgba-colors, 1);
+$success-rgba-2: nth($success-rgba-colors, 2);
+$success-rgba-3: nth($success-rgba-colors, 3);
+$success-rgba-4: nth($success-rgba-colors, 4);
+$success-rgba-5: nth($success-rgba-colors, 5);
+$success-rgba-6: nth($success-rgba-colors, 6);
+$success-rgba-7: nth($success-rgba-colors, 7);
+
+$danger-rgba-1: nth($danger-rgba-colors, 1);
+$danger-rgba-2: nth($danger-rgba-colors, 2);
+$danger-rgba-3: nth($danger-rgba-colors, 3);
+$danger-rgba-4: nth($danger-rgba-colors, 4);
+$danger-rgba-5: nth($danger-rgba-colors, 5);
+$danger-rgba-6: nth($danger-rgba-colors, 6);
+$danger-rgba-7: nth($danger-rgba-colors, 7);
+
+$warning-rgba-1: nth($warning-rgba-colors, 1);
+$warning-rgba-2: nth($warning-rgba-colors, 2);
+$warning-rgba-3: nth($warning-rgba-colors, 3);
+$warning-rgba-4: nth($warning-rgba-colors, 4);
+$warning-rgba-5: nth($warning-rgba-colors, 5);
+$warning-rgba-6: nth($warning-rgba-colors, 6);
+$warning-rgba-7: nth($warning-rgba-colors, 7);
+
+$info-rgba-1: nth($info-rgba-colors, 1);
+$info-rgba-2: nth($info-rgba-colors, 2);
+$info-rgba-3: nth($info-rgba-colors, 3);
+$info-rgba-4: nth($info-rgba-colors, 4);
+$info-rgba-5: nth($info-rgba-colors, 5);
+$info-rgba-6: nth($info-rgba-colors, 6);
+$info-rgba-7: nth($info-rgba-colors, 7);
+
+$light-rgba-1: nth($light-rgba-colors, 1);
+$light-rgba-2: nth($light-rgba-colors, 2);
+$light-rgba-3: nth($light-rgba-colors, 3);
+$light-rgba-4: nth($light-rgba-colors, 4);
+$light-rgba-5: nth($light-rgba-colors, 5);
+$light-rgba-6: nth($light-rgba-colors, 6);
+$light-rgba-7: nth($light-rgba-colors, 7);
+
+$dark-rgba-1: nth($dark-rgba-colors, 1);
+$dark-rgba-2: nth($dark-rgba-colors, 2);
+$dark-rgba-3: nth($dark-rgba-colors, 3);
+$dark-rgba-4: nth($dark-rgba-colors, 4);
+$dark-rgba-5: nth($dark-rgba-colors, 5);
+$dark-rgba-6: nth($dark-rgba-colors, 6);
+$dark-rgba-7: nth($dark-rgba-colors, 7);
+
+// Text Colors
+$text-color: #212529; // Main text color
+$muted-text-color: #6c757d; // Muted text color
+
+// Background Colors
+$background-color: #ffffff; // Default background color
+
+// Example Usage of RGBA
+$overlay-color: rgba($dark-color, 0.5); // Dark overlay example

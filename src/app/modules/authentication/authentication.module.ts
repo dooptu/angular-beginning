@@ -10,6 +10,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
 import { authenticationRoutes } from './authentication.route';
+import { FormErrorComponent } from '../../common/errors/form-error.component';
+import { SharedCommonModule } from '../../common/common.module';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { authenticationRoutes } from './authentication.route';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    RouterModule.forChild(authenticationRoutes)
+    RouterModule.forChild(authenticationRoutes),
+    SharedCommonModule
   ],
   exports: [RouterModule],  // Export if needed in other modules
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

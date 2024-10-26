@@ -1,19 +1,37 @@
 /* app/modules/authentication/sign-in/sign-in.scss */
+@import '../../../styles/color-variables.scss';
+
 .signin-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signin-card {
+  width: 400px;
+  padding: 2rem;
+  text-align: center;
+  background-color: $black-color;
+
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none; // Hide this wrapper if unnecessary
   }
-  
-  .signin-card {
-    width: 400px;
-    padding: 2rem;
-    text-align: center;
+
+
+  // You can add more styling to mat-error if needed
+  mat-error {
+    color: rgba(220, 53, 69, 0.5); // Error color
+    font-size: 12px; // Customize font size
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
-  
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  
+}
+.mat-mdc-form-field-error-wrapper{
+  padding: 0;
+}

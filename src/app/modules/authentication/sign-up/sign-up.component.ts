@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Constant
 const MAX_FULL_NAME_LENGTH = 100;
+const MIN_FULL_NAME_LENGTH = 100;
 const MAX_PASSWORD_LENGTH = 20;
 const MIN_PASSWORD_LENGTH = 12;
 
@@ -18,9 +19,29 @@ export class SignUpComponent {
 
   constructor(private fb: FormBuilder) {
     this.signUpForm = this.fb.group({
-      fullName: ['', Validators.required, Validators.maxLength(MAX_FULL_NAME_LENGTH)],
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required, Validators.minLength(MIN_PASSWORD_LENGTH), Validators.maxLength(MAX_PASSWORD_LENGTH)],
+      fullName: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(MAX_FULL_NAME_LENGTH),
+          Validators.minLength(MIN_FULL_NAME_LENGTH),
+        ]
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+        ]
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(MIN_PASSWORD_LENGTH),
+          Validators.maxLength(MAX_PASSWORD_LENGTH),
+        ]
+      ],
     })
   }
 
