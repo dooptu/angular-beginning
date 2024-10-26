@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { RouterModule } from '@angular/router';
+import { authenticationRoutes } from './authentication.route';
 
 
 @NgModule({
@@ -19,8 +21,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    RouterModule.forChild(authenticationRoutes)
   ],
-  exports: [SignInComponent, SignUpComponent],  // Export if needed in other modules
+  exports: [RouterModule],  // Export if needed in other modules
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AuthenticationModule {}
