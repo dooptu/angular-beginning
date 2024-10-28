@@ -3,21 +3,25 @@
   <mat-card class="signin-card">
     <h2>Sign In</h2>
     <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="outline">
+      <mat-form-field 
+        appearance="outline"
+        [ngClass]="{'valid-outline': signInForm.get('email')?.valid}"
+      >
         <mat-label>Email</mat-label>
         <input matInput type="email" formControlName="email" required />
         
-        <!-- Use optional chaining to avoid null errors -->
         <mat-error *ngIf="signInForm.get('email')?.touched && signInForm.get('email')?.errors">
           <app-form-error [control]="signInForm.get('email')"></app-form-error>
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field 
+        appearance="outline"
+        [ngClass]="{'valid-outline': signInForm.get('password')?.valid}"
+      >
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName="password" required />
         
-        <!-- Use optional chaining to avoid null errors -->
         <mat-error *ngIf="signInForm.get('password')?.touched && signInForm.get('password')?.errors">
           <app-form-error [control]="signInForm.get('password')"></app-form-error>
         </mat-error>

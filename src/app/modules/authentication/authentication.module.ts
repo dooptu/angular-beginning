@@ -1,7 +1,7 @@
 // app/modules/authentication/authentication.module.ts
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -12,10 +12,11 @@ import { RouterModule } from '@angular/router';
 import { authenticationRoutes } from './authentication.route';
 import { FormErrorComponent } from '../../common/errors/form-error.component';
 import { SharedCommonModule } from '../../common/common.module';
-
+import { AuthScreenComponent } from './auth-screen/auth-screen.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
-  declarations: [SignInComponent, SignUpComponent],
+  declarations: [SignInComponent, SignUpComponent, AuthScreenComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -23,8 +24,10 @@ import { SharedCommonModule } from '../../common/common.module';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    MatButtonToggleModule,
     RouterModule.forChild(authenticationRoutes),
-    SharedCommonModule
+    SharedCommonModule,
+    FormsModule 
   ],
   exports: [RouterModule],  // Export if needed in other modules
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

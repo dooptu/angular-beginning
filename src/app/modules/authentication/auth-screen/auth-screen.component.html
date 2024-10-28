@@ -1,0 +1,16 @@
+<h1>Auth</h1>
+<div>
+    <mat-button-toggle-group [(ngModel)]="toggleChangeAuthState" name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle [value]="true">Sign In</mat-button-toggle>
+        <mat-button-toggle [value]="false">Sign Up</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div *ngIf="toggleChangeAuthState; else showSignUp">
+        <h2>Sign In</h2>
+        <app-sign-in></app-sign-in>
+    </div>
+    <ng-template #showSignUp>
+        <h2>Sign Up</h2>
+        <app-sign-up></app-sign-up>
+    </ng-template>
+</div>

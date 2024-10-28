@@ -19,19 +19,19 @@
 mat-form-field {
   width: 100%;
   margin-bottom: 1.5rem;
-  .mat-mdc-form-field-subscript-wrapper {
-    display: none; // Hide this wrapper if unnecessary
+
+  &.valid-field .mat-mdc-form-field-outline {
+    stroke: green; // Green outline for valid inputs
   }
 
-
-  // You can add more styling to mat-error if needed
   mat-error {
     color: rgba(220, 53, 69, 0.5); // Error color
-    font-size: 12px; // Customize font size
+    font-size: 12px;
     padding-bottom: 10px;
     padding-top: 10px;
   }
 }
-.mat-mdc-form-field-error-wrapper{
-  padding: 0;
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none; // Hide this wrapper if unnecessary
 }
