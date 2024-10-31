@@ -1,23 +1,59 @@
 <div class="signup-container">
-    <mat-cat class="signup-card">
-        <h2>Sign Up</h2>
-        <form [formGroup]="signUpForm" (ngSubmit)="_handleOnSubmit()">
-            <mat-form-field appearance="fill">
-                <mat-lable>Full name</mat-lable>
-                <input matInput type="text" formControlName="fullName" required>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-lable>Email</mat-lable>
-                <input matInput type="email" formControlName="email" required>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-lable>Password</mat-lable>
-                <input matInput type="password" formControlName="email" required>
-            </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Sign In</button>
-
-        </form>
-    </mat-cat>
-</div>
+    <nz-card class="signup-card">
+      <h2>Sign Up</h2>
+      <form [formGroup]="signUpForm" (ngSubmit)="_handleOnSubmit()" nz-form nzLayout="vertical">
+        
+        <nz-form-item>
+          <nz-form-label [nzFor]="'fullName'" nzRequired>Full Name</nz-form-label>
+          <nz-form-control [nzValidateStatus]="signUpForm.get('fullName')!">
+            <input
+              nz-input
+              type="text"
+              id="fullName"
+              formControlName="fullName"
+              required
+            />
+            <nz-form-explain *ngIf="signUpForm.get('fullName')?.touched && signUpForm.get('fullName')?.errors">
+              <app-form-error [control]="signUpForm.get('fullName')"></app-form-error>
+            </nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        
+        <nz-form-item>
+          <nz-form-label [nzFor]="'email'" nzRequired>Email</nz-form-label>
+          <nz-form-control [nzValidateStatus]="signUpForm.get('email')!">
+            <input
+              nz-input
+              type="email"
+              id="email"
+              formControlName="email"
+              required
+            />
+            <nz-form-explain *ngIf="signUpForm.get('email')?.touched && signUpForm.get('email')?.errors">
+              <app-form-error [control]="signUpForm.get('email')"></app-form-error>
+            </nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        
+        <nz-form-item>
+          <nz-form-label [nzFor]="'password'" nzRequired>Password</nz-form-label>
+          <nz-form-control [nzValidateStatus]="signUpForm.get('password')!">
+            <input
+              nz-input
+              type="password"
+              id="password"
+              formControlName="password"
+              required
+            />
+            <nz-form-explain *ngIf="signUpForm.get('password')?.touched && signUpForm.get('password')?.errors">
+              <app-form-error [control]="signUpForm.get('password')"></app-form-error>
+            </nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        
+        <button nz-button nzType="primary" nzBlock type="submit">Sign Up</button>
+        
+      </form>
+    </nz-card>
+  </div>
+  

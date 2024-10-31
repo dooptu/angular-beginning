@@ -1,0 +1,37 @@
+/* app/modules/authentication/sign-in/sign-in.scss */
+@import '../../../styles/color-variables.scss';
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-card {
+  width: 400px;
+  padding: 2rem;
+//   text-align: center;
+  // background-color: $black-color;
+
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  &.valid-field .mat-mdc-form-field-outline {
+    stroke: green; // Green outline for valid inputs
+  }
+
+  mat-error {
+    color: rgba(220, 53, 69, 0.5); // Error color
+    font-size: 12px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none; // Hide this wrapper if unnecessary
+}

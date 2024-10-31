@@ -10,11 +10,14 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
 import { authenticationRoutes } from './authentication.route';
-import { FormErrorComponent } from '../../common/errors/form-error.component';
 import { SharedCommonModule } from '../../common/common.module';
 import { AuthScreenComponent } from './auth-screen/auth-screen.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 @NgModule({
   declarations: [SignInComponent, SignUpComponent, AuthScreenComponent],
   imports: [
@@ -27,7 +30,12 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatButtonToggleModule,
     RouterModule.forChild(authenticationRoutes),
     SharedCommonModule,
-    FormsModule 
+    FormsModule,
+    NzButtonModule,
+    NzInputModule,
+    NzIconModule,
+    NzCardModule,
+    NzFormModule,
   ],
   exports: [RouterModule],  // Export if needed in other modules
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

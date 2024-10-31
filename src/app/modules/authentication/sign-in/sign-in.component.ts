@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,13 +8,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './sign-in.component.scss'
 })
 export class SignInComponent {
-  signInForm: FormGroup;
+  @Output() emailChanged = new EventEmitter<string>();
+  @Output() passwordChanged = new EventEmitter<string>();
+  @Output() fncTriggerFromParent = new EventEmitter<void>();
+  @Input() dataFromParent: string = '';
 
-  constructor(private fb: FormBuilder) {
+  signInForm: FormGroup;
+  showPassWord: boolean = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.signInForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+
+  }
+
+  onEmailChange(event: Event){
+    const value = (event?.target as HTMLInputElement).value;
+    this.emailChanged.emit(value);
+  }
+
+  onPasswordChange(event: Event){
+    const value = (event?.target as HTMLInputElement).value;
+    this.passwordChanged.emit(value);
   }
 
   onSubmit(): void {
@@ -21,6 +42,21 @@ export class SignInComponent {
       const { email, password } = this.signInForm.value;
       console.log('Email:', email);
       console.log('Password:', password);
+      this.passwordChanged = password;
+      this.router.navigate(['/admin/dashboard'])
     }
+  }
+
+  resetForm() {
+    this.signInForm.reset(); // Method to reset the form
+    console.log("Form reset");
+  }
+
+  onFnTriggerFromParent(){
+    this.fncTriggerFromParent.emit();
+  }
+
+  togglePasswordVisibility(){
+    this.showPassWord = !this.showPassWord;
   }
 }

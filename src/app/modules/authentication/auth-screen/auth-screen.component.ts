@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { SignInComponent } from '../sign-in/sign-in.component';
 
 @Component({
   selector: 'app-auth-screen',
@@ -6,10 +7,32 @@ import { Component } from '@angular/core';
   styleUrl: './auth-screen.component.scss'
 })
 export class AuthScreenComponent {
-  toggleChangeAuthState: boolean;
-  
-constructor(){
-  this.toggleChangeAuthState = false;
-}
+
+  @ViewChild(SignInComponent) signInComponent!: SignInComponent;
+  parentInput: string ='';
+
+  constructor() {
+  }
+
+  toggleChangeAuthState: boolean = true;
+  emailChangeSignIn: string = '';
+  passwordChangeSignIn: string = '';
+
+  onGetPassWordChange(value: string){
+    this.passwordChangeSignIn = value;
+  }
+
+  onGetEmailChange(value: string) {
+    this.emailChangeSignIn = value;
+  }
+
+  triggerReset(){
+    this.signInComponent.resetForm();
+  }
+
+  passFncToChild(){
+    window.alert('Auth screen function');
+  }
+
 
 }

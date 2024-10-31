@@ -1,33 +1,59 @@
 <!-- app/modules/authentication/sign-in/sign-in.html -->
 <div class="signin-container">
-  <mat-card class="signin-card">
+  <p>{{dataFromParent}}</p>
+  
+  <nz-card class="signin-card">
     <h2>Sign In</h2>
-    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-      <mat-form-field 
-        appearance="outline"
-        [ngClass]="{'valid-outline': signInForm.get('email')?.valid}"
-      >
-        <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="email" required />
-        
-        <mat-error *ngIf="signInForm.get('email')?.touched && signInForm.get('email')?.errors">
-          <app-form-error [control]="signInForm.get('email')"></app-form-error>
-        </mat-error>
-      </mat-form-field>
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" nz-form nzLayout="vertical">
+      
+      <nz-form-item>
+        <nz-form-label [nzFor]="'email'" nzRequired>Email</nz-form-label>
+        <nz-form-control [nzValidateStatus]="signInForm.get('email')!">
+          <input
+            nz-input
+            type="email"
+            id="email"
+            formControlName="email"
+            required
+            (input)="onEmailChange($event)"
+          />
+          <nz-form-explain *ngIf="signInForm.get('email')?.touched && signInForm.get('email')?.errors">
+            <app-form-error [control]="signInForm.get('email')"></app-form-error>
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
 
-      <mat-form-field 
-        appearance="outline"
-        [ngClass]="{'valid-outline': signInForm.get('password')?.valid}"
-      >
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" required />
-        
-        <mat-error *ngIf="signInForm.get('password')?.touched && signInForm.get('password')?.errors">
-          <app-form-error [control]="signInForm.get('password')"></app-form-error>
-        </mat-error>
-      </mat-form-field>
+      <nz-form-item>
+        <nz-form-label [nzFor]="'password'" nzRequired>Password</nz-form-label>
+        <nz-form-control [nzValidateStatus]="signInForm.get('password')!">
+          <nz-input-group [nzSuffix]="suffixIcon">
+            <input
+              nz-input
+              [type]="showPassWord ? 'text' : 'password'"
+              id="password"
+              formControlName="password"
+              required
+              (input)="onPasswordChange($event)"
+            />
+          </nz-input-group>
+          <ng-template #suffixIcon>
+            <i
+              nz-icon
+              [nzType]="showPassWord ? 'eye-invisible' : 'eye'"
+              (click)="togglePasswordVisibility()"
+              style="cursor: pointer;"
+            ></i>
+          </ng-template>
+          <nz-form-explain *ngIf="signInForm.get('password')?.touched && signInForm.get('password')?.errors">
+            <app-form-error [control]="signInForm.get('password')"></app-form-error>
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      
 
-      <button mat-raised-button color="primary" type="submit">Sign In</button>
+      <button nz-button nzType="primary" nzBlock type="submit">Sign In</button>
     </form>
-  </mat-card>
+    
+    <button nz-button nzType="default" nzBlock (click)="onFnTriggerFromParent()">Alert</button>
+  </nz-card>
 </div>

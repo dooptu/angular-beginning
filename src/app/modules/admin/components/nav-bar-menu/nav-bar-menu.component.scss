@@ -1,0 +1,16 @@
+.wrapper {
+    position: fixed;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    min-width: 20px;
+    border-radius: 10px;
+    overflow-y: auto;
+    background-color: #001529;
+    padding: 16px;
+    z-index: 1000;
+}
+
+button {
+    margin-bottom: 12px;
+}
