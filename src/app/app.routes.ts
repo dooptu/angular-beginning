@@ -10,7 +10,7 @@ export const routes: Routes = [
         path: 'admin',
         loadChildren: ()=> import('./modules/admin/admin.module').then(m=>m.AdminModule)
     },
-    { path: '**', redirectTo: '/auth/sign-in' }, // wildcard route for unknown paths
+    // { path: '**', redirectTo: '/auth/sign-in' }, // wildcard route for unknown paths
 ];
 
 @NgModule({

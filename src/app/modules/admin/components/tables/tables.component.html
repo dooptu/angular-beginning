@@ -1,0 +1,29 @@
+<nz-table #basicTable [nzData]="data" [nzBordered]="true">
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns">{{ column }}</th>
+        <th *ngIf="actions.length">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of basicTable.data">
+        <td *ngFor="let column of columns">{{ item[column] }}</td>
+        <td *ngIf="actions.length">
+          <nz-dropdown>
+            <a nz-dropdown>
+              <i nz-icon nzType="menu" style="font-size: 20px; cursor: pointer;"></i> <!-- Toggle Menu Icon -->
+            </a>
+            <ul nz-menu>
+              <li *ngFor="let action of actions" nz-menu-item (click)="action.callback(item)">
+                <nz-tooltip [nzTitle]="action.title" nzPlacement="right">
+                  <i nz-icon [nzType]="action.icon" style="font-size: 16px; margin-right: 8px;"></i> <!-- Action Icon -->
+                </nz-tooltip>
+                {{ action.title }} <!-- Optional: You can remove this if you want only icons -->
+              </li>
+            </ul>
+          </nz-dropdown>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  

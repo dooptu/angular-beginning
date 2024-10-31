@@ -1,58 +1,55 @@
 <div class="wrapper">
     <button nz-button nzType="primary" (click)="toggleCollapsed()">
-      <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+        <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
     </button>
     <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
-      <li
-        nz-menu-item
-        nz-tooltip
-        nzTooltipPlacement="right"
-        [nzTooltipTitle]="isCollapsed ? 'Dashboard' : ''"
-        nzSelected
-      >
-        <span nz-icon nzType="dashboard"></span> <!-- Dashboard Icon -->
-        <span>Dashboard</span>
-      </li>
-      <li nz-submenu nzTitle="Manage User" nzIcon="user">
-        <ul>
-          <li nz-menu-item>
-            <span nz-icon nzType="team"></span> <!-- Team Icon for Manage Customer -->
-            Manage Customer
-          </li>
-          <li nz-menu-item>
-            <span nz-icon nzType="user-add"></span> <!-- User Add Icon for Manage Employee -->
-            Manage Employee
-          </li>
-          <li nz-submenu nzTitle="Submenu">
+        <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Dashboard' : ''"
+            nzSelected (click)="setMenuOptionChoice('DASHBOARD')">
+            <span nz-icon nzType="dashboard"></span>
+            <span>Dashboard</span>
+        </li>
+        <li nz-submenu nzTitle="Manage User" nzIcon="user">
             <ul>
-              <li nz-menu-item>
-                <span nz-icon nzType="account-book"></span> <!-- Account Book Icon for Manage Accountant -->
-                Manage Accountant
-              </li>
-              <li nz-menu-item>
-                <span nz-icon nzType="shopping-cart"></span> <!-- Shopping Cart Icon for Manage Sales -->
-                Manage Sales
-              </li>
+                <li nz-menu-item (click)="setMenuOptionChoice('MANAGE_USER')">
+                    <span nz-icon nzType="team"></span>
+                    All Users
+                </li>
+                <li nz-menu-item (click)="setMenuOptionChoice('MANAGE_CUSTOMER')">
+                    <span nz-icon nzType="team"></span>
+                    Manage Customer
+                </li>
+                <li nz-menu-item (click)="setMenuOptionChoice('MANAGE_EMPLOYEE')">
+                    <span nz-icon nzType="user-add"></span>
+                    Manage Employee
+                </li>
+                <li nz-submenu nzTitle="Submenu" (click)="setMenuOptionChoice('MANAGE_ACCOUNTANT')">
+                    <ul>
+                        <li nz-menu-item>
+                            <span nz-icon nzType="account-book"></span>
+                            Manage Accountant
+                        </li>
+                        <li nz-menu-item (click)="setMenuOptionChoice('MANAGE_SALES')">
+                            <span nz-icon nzType="shopping-cart"></span>
+                            Manage Sales
+                        </li>
+                    </ul>
+                </li>
             </ul>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzTitle="Manage Transactions" nzIcon="dollar">
-        <ul>
-          <li nz-menu-item>
-            <span nz-icon nzType="eye"></span> <!-- Eye Icon for View Transactions -->
-            View Transactions
-          </li>
-          <li nz-menu-item>
-            <span nz-icon nzType="rollback"></span> <!-- Rollback Icon for Process Refunds -->
-            Process Refunds
-          </li>
-          <li nz-menu-item>
-            <span nz-icon nzType="line-chart"></span> <!-- Line Chart Icon for Transaction Reports -->
-            Transaction Reports
-          </li>
-        </ul>
-      </li>
+        </li>
+        <li nz-submenu nzTitle="Manage Transactions" nzIcon="dollar">
+            <ul>
+                <li nz-menu-item>
+                    <span nz-icon nzType="eye"></span>
+                </li>
+                <li nz-menu-item>
+                    <span nz-icon nzType="rollback"></span>
+                    Process Refunds
+                </li>
+                <li nz-menu-item>
+                    <span nz-icon nzType="line-chart"></span>
+                    Transaction Reports
+                </li>
+            </ul>
+        </li>
     </ul>
-  </div>
-  
+</div>

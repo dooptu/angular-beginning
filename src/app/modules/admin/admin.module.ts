@@ -10,14 +10,19 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { TablesComponent } from './components/tables/tables.component';
+import { AdminService } from './services/admin.service';
 
 
 @NgModule({
   declarations: [
     DashboardComponent, 
     ManageUserComponent,
-    NavBarMenuComponent
+    NavBarMenuComponent,
+    AdminPageComponent,
+    TablesComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +30,11 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
     NzMenuModule,
     NzIconModule,
     NzButtonModule,
-    NzToolTipModule
+    NzToolTipModule,
+    NzTableModule
+  ],
+  providers: [
+    AdminService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

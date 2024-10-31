@@ -1,0 +1,17 @@
+@import '../../../styles/color-variables.scss';
+.admin-page-container {
+    display: flex; /* Use Flexbox for layout */
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    background-color: $white-color;
+}
+
+.menu-area{
+    width: 20%;
+}
+
+.content-area {
+    flex: 1; /* Take the remaining space */
+    padding: 16px; /* Padding for the content area */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+}

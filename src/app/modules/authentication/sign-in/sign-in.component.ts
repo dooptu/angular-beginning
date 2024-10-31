@@ -43,7 +43,7 @@ export class SignInComponent {
       console.log('Email:', email);
       console.log('Password:', password);
       this.passwordChanged = password;
-      this.router.navigate(['/admin/dashboard'])
+      this.router.navigate(['/admin'])
     }
   }
 

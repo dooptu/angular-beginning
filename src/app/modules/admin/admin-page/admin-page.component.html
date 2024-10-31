@@ -1,0 +1,18 @@
+<div class="admin-page-container">
+    <!-- Vertical nav bar menu -->
+    <div class="menu-area">
+        <app-nav-bar-menu (menuOptionChoiceProps)="getMenuOptionChoice($event)"></app-nav-bar-menu>
+    </div>
+
+    <!-- Component display -->
+    <div class="content-area" [ngSwitch]="menuOptionChoice">
+        <app-dashboard *ngSwitchCase="'DASHBOARD'"></app-dashboard>
+        <app-manage-user *ngSwitchCase="'MANAGE_USER'"></app-manage-user>
+        <!-- Uncomment these when needed
+        <app-component-three *ngSwitchCase="'MANAGE_CUSTOMER'"></app-component-three>
+        <app-component-four *ngSwitchCase="'MANAGE_EMPLOYEE'"></app-component-four>
+        <app-component-five *ngSwitchCase="'MANAGE_ACCOUNTANT'"></app-component-five>
+        -->
+        <div *ngSwitchDefault>Select a component</div> <!-- Optional default case -->
+    </div>
+</div>
